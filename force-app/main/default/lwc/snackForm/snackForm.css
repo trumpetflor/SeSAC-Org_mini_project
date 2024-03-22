@@ -1,0 +1,33 @@
+.slds-p-around_medium.lgc-bg lightning-input {
+    width: calc(60% - 0.75rem); /* 조 이름과 조원 수의 너비의 절반 */
+    margin-right: 0.5rem; /* 우측 마진 추가 */
+}
+.slds-p-around_medium.lgc-bg lightning-combobox {
+    width: calc(60% - 0.75rem); /* 조 이름과 조원 수의 너비의 절반 */
+    margin-right: 0.5rem; /* 우측 마진 추가 */
+}
+
+/* 신청 일자 입력 필드의 너비를 조원 수와 동일하게 설정합니다. */
+.application.date lightning-input {
+    width: calc(59% - 0.75rem); /* 조 이름과 조원 수의 너비의 절반 */
+    margin-right: 0.5rem; /* 우측 마진 추가 */
+    margin-left: 13px;
+}
+
+.end.date lightning-input {
+    width: calc(59% - 0.75rem); /* 조 이름과 조원 수의 너비의 절반 */
+    margin-right: 0.5rem; /* 우측 마진 추가 */
+    margin-left: 13px;
+}
+
+.snack.list {
+    margin-left: 10px; /* 우측 마진 추가 */
+}
+
+/* 과자 신청 폼을 감싸는 컨테이너의 클래스를 사용하여 버튼을 맨 오른쪽에 배치합니다. */
+.formContainer {
+    display: flex;
+    justify-content: center; /* 가로 방향으로 요소들을 가운데 정렬합니다. */
+    align-items: center; /* 세로 방향으로 요소들을 가운데 정렬합니다. */
+    
+}

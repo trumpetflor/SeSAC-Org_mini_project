@@ -1,0 +1,42 @@
+<template>
+    <lightning-card variant="narrow" icon-name="standard:opportunity">
+        <h1 slot="title">힐링 이벤트</h1>
+        <h2 class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium">
+            힐링 이벤트 선택해 주세요</h2>
+
+    <template if:true={recordTypeIds}>
+        <lightning-radio-group class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium"
+            name="radioGroup"
+            label="Radio Group"
+            options={options}
+            value={value}
+            type="radio"
+            onchange={handleBrandChange}>
+        </lightning-radio-group>
+
+        <template if:true={showBooksForm}>
+            <lightning-record-form class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium"
+                object-api-name="Healing_Event__c"
+                record-type-id={recordTypeIds.Healing_Event_Books}
+                record-id={recordId}
+                fields={fields}
+                onsuccess={handleSuccess}>
+            </lightning-record-form>
+        </template>
+
+        <template if:true={showTeaForm}>
+            <lightning-record-form class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom--medium"
+                object-api-name="Healing_Event__c"
+                record-type-id={recordTypeIds.Healing_Event_Tea}
+                record-id={recordId}
+                fields={fields}
+                onsuccess={handleSuccess}>
+            </lightning-record-form>
+        </template>
+
+            <div slot="footer">
+            <h6>This is the footer</h6>
+        </div>
+    </template>
+    </lightning-card>
+</template>

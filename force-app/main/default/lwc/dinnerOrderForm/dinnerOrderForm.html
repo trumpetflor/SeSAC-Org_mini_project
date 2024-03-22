@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="저녁 신청 폼🍱">
+        <div class="slds-p-around_medium">
+            <!-- 주문 담당자가 당일 주문서를 입력했을 시에 폼 작성 가능 -->
+
+            <!-- 서버에서 가져온 정보에 따라 폼을 나타내거나 메시지를 표시 -->
+            <template if:true={isFormVisible}>
+
+               <!-- 주문 담당자 이름과 주문 마감시간을 표시하는 부분 추가 -->
+                <div if:true={orderRepresentativeName} class="slds-p-around_medium">
+                    <p class="slds-text-heading_medium">🙆 오늘의 주문 담당자: {orderRepresentativeName}</p>
+                    <p class="slds-text-heading_medium">⏰ 주문 마감시간: {orderDeadline}</p>
+                </div>
+                
+                <!-- 신청일자를 표시하는 Input (readonly) -->
+                <lightning-input label="신청일자" value={applicationDate} readonly class="slds-p-around_medium"></lightning-input>
+
+                <!-- 신청자를 선택하는 Combobox -->
+                <lightning-combobox
+                    label="신청자"
+                    value={selectedContactId}
+                    options={contactOptions}
+                    onchange={handleApplicantChange}
+                    class="slds-p-around_medium"
+                ></lightning-combobox>
+
+                <!-- Dinner 메뉴를 선택하는 Combobox -->
+                <lightning-combobox
+                    label="메뉴명"
+                    value={selectedDinnerName}
+                    options={dinnerOptions}
+                    onchange={handleDinnerChange}
+                    class="slds-p-around_medium"
+                ></lightning-combobox>
+
+                <!-- Submit 버튼 -->
+                <lightning-button label="Submit" onclick={handleSubmit} class="slds-p-around_medium"></lightning-button>
+            </template>
+            
+            <!-- 폼이 나타나지 않을 때 메시지 표시 -->
+            <template if:false={isFormVisible}>
+                <p>{message}</p>
+                <div  class="slds-p-around_medium">
+                <!-- Create Dinner Form 버튼 -->
+                 <lightning-button label="Create Dinner Form" onclick={handleCreateDinnerForm} class="slds-p-around_medium"></lightning-button>
+                </div>
+
+            </template>
+
+            <!-- 모달 -->
+            <template if:true={showDinnerFormModal}>
+                <div class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <!-- 모달 헤더 -->
+                        <header class="slds-modal__header">
+                            <h2 class="slds-text-heading_medium">Create Dinner Form</h2>
+                        </header>
+                        <!-- 모달 본문 -->
+                        <div class="slds-modal__content slds-p-around_medium">
+                            <!-- Order Representative 선택 -->
+                            <lightning-combobox
+                                label="Order Representative"
+                                value={selectedOrderRepresentativeId}
+                                options={contactOptions}
+                                onchange={handleOrderRepresentativeChange}
+                            ></lightning-combobox>
+                          <!-- Order Deadline 입력 -->
+                          <lightning-input label="Order Deadline" type="time" value={orderDeadline} onchange={handleOrderDeadlineChange}></lightning-input>
+
+                        </div>
+                        <!-- 모달 푸터 -->
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_brand" onclick={saveDinnerForm}>Save</button>
+                            <button class="slds-button" onclick={closeModal}>Cancel</button>
+                        </footer>
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </template>
+       
+        </div>
+    </lightning-card>
+</template>

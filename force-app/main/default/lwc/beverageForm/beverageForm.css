@@ -1,0 +1,8 @@
+.beverage-form{
+    background-color: white;
+}
+
+.my-icon {
+    --slds-c-icon-color-foreground-default: red;
+    /* --slds-c-icon-color-background: red;*/
+}

@@ -1,0 +1,41 @@
+<template>
+    <lightning-card  title="과자 신청 폼">
+
+        <p id="custom" class="slds-box slds-text-heading_small">
+            <lightning-icon icon-name="custom:custom11" title="custom11"></lightning-icon>  * 다음주 드실 과자 신청 해주세요. ^__^ *
+            <lightning-icon icon-name="custom:custom11" title="custom11"></lightning-icon><br>(마감일자는 신청주의 금요일로 설정 해주세요.)<br>
+        </p>
+       
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+            <div class="slds-p-around_medium lgc-bg">
+                <!-- Use lightning-combobox for the team name -->
+                <lightning-combobox
+                    placeholder=" 조 이름"
+                    name="teamName"
+                    label="조 이름"
+                    value={teamName}
+                    options={teamOptions}
+                    onchange={handleTeamChange}>
+                </lightning-combobox>
+                <lightning-input type="number" label="조원 수"   value={Number_of_Team} onchange={handleMemberChange}></lightning-input>
+            </div>
+            <div class="application date">
+                <lightning-input type="date" name="applicationDate" label="신청 일자" value={applicationDate} onchange={handleDateChange}></lightning-input>
+            </div>
+            <div class="end date">
+                <lightning-input type="date" name="orderDeadline" label="신청 마감 일자" value={orderDeadline} onchange={handleDateChange}></lightning-input>
+            </div><br>
+            <div class="snack list">
+            <lightning-checkbox-group name="Checkbox Group"
+                              label="<과자 2개 선택 해주세요.>"
+                              options={options}
+                              value={value}
+                              onchange={handleChange}></lightning-checkbox-group>
+            <p>Selected Values are: {selectedValues}</p>
+            <p>Selected Values Total Price are: {formattedTotalPrice} 원</p></div>
+        </div>
+        <div class="formContainer">
+            <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+         </div>
+    </lightning-card>
+</template>

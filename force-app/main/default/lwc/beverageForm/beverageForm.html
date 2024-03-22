@@ -1,0 +1,51 @@
+<template>
+    <div class="beverage-form">
+        <lightning-card title="음료 신청 폼">
+            <template if:true={getTodayDate}>
+                <lightning-card title={getTodayDate} icon-name="custom:custom25">
+                </lightning-card>
+            </template>
+            <template if:true={getRemainingTime}>
+                <lightning-card class='my-icon' title={getRemainingTime} icon-name="utility:warning" alternative-text="Warning!" variant="error"
+                size="small">
+                </lightning-card>
+            </template>
+            <template if:true={recordTypeIds}>
+                <template if:true={checkOrderLeftTime}>
+                        <lightning-radio-group
+                        name="Select Brand"
+                        label="Beverage Brand"
+                        options={options}
+                        value={value}
+                        type="radio"
+                        onchange={handleBrandChange}>
+                    </lightning-radio-group>
+                </template>
+
+                <template if:true={showStarbucksForm}>
+                    <lightning-record-form
+                        object-api-name="Beverage__c"
+                        record-type-id={recordTypeIds.Beverage_RECORDTYPE_STARBUCKS}
+                        record-id={recordId}
+                        fields={fields}
+                        onsuccess={handleSuccess}
+                        oncancel={handleCancel}
+                        >
+                    </lightning-record-form>
+                </template>
+
+                <template if:true={showTwosomeForm}>
+                    <lightning-record-form
+                        object-api-name="Beverage__c"
+                        record-type-id={recordTypeIds.Beverage_RECORDTYPE_TWOSOME}
+                        record-id={recordId}
+                        fields={fields}
+                        onsuccess={handleSuccess}
+                        oncancel={handleCancel}
+                        >
+                    </lightning-record-form>
+                </template>
+            </template>
+        </lightning-card>
+    </div>
+</template>

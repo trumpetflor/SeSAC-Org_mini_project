@@ -1,0 +1,76 @@
+.templateContainer {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  max-height: 1000%;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  /* justify-content: center; */
+  justify-content: center;
+  background-color: white;
+  color: black;
+  /* border: 2px solid royalblue; */
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+lightning-modal-header {
+  font-size: xx-large;
+  font-synthesis-weight: 200;
+}
+
+.picklistContainer {
+  width: 100%;
+  background-color: white;
+  display: flex;
+}
+
+.secondfloor {
+  margin-top: 1rem;
+  border-top: 1px solid #d2d2d2;
+  width: 100%;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.titleContainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.authorContainer {
+  display: flex;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.authortextarea {
+  width: 60%;
+  height: 100%;
+}
+
+.titletextarea {
+  width: 100%;
+  height: 100%;
+}
+
+.richtextarea {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.comboBox {
+  width: 100%;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

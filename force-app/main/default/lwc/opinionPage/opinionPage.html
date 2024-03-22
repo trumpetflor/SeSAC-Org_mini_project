@@ -1,0 +1,64 @@
+<!-- myComponent.html -->
+<template>
+  <div class="templateContainer">
+    <lightning-modal-header>건의사항</lightning-modal-header>
+    <div class="picklistContainer">
+      <lightning-combobox
+        class="comboBox"
+        placeholder="문의 대상 선택"
+        value={targetvalue}
+        options={categoryOptions}
+        onchange={handleTargetChange}
+      >
+      </lightning-combobox>
+    </div>
+    <div class="picklistContainer">
+      <lightning-combobox
+        class="comboBox"
+        placeholder="문의 유형 선택"
+        value={typeValue}
+        options={typeOptions}
+        onchange={handleTypeChange}
+      >
+      </lightning-combobox>
+    </div>
+    <div class="secondfloor">
+      <div class="inputContainer">
+        <div class="authorContainer">
+          <lightning-input
+            name="authortextarea"
+            class="authortextarea"
+            placeholder="작성자"
+            value={authortextarea}
+            onchange={handleInputChange}
+          ></lightning-input>
+        </div>
+
+        <div class="titleContainer">
+          <lightning-input
+            class="titletextarea"
+            name="titletextarea"
+            placeholder="제목을 입력하세요"
+            value={titletextarea}
+            onchange={handleInputChange}
+          ></lightning-input>
+        </div>
+      </div>
+    </div>
+    <div class="textContainer">
+      <lightning-textarea
+        class="richtextarea"
+        name="richtextarea"
+        placeholder="내용을 입력하세요"
+        value={richtextfield}
+        onchange={handleInputChange}
+        message-when-bad-input={errorMessage}
+      >
+      </lightning-textarea>
+    </div>
+
+    <div class="btnContainer">
+      <lightning-button label="제출" onclick={handleSubmit}></lightning-button>
+    </div>
+  </div>
+</template>

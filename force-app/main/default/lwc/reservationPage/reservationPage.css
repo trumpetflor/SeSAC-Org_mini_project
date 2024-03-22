@@ -1,0 +1,13 @@
+.templateContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.picklistContainer {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1.5rem;
+}

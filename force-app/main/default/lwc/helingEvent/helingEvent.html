@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="힐링 이벤트 신청">
+        <template if:true={showStarbucksForm}>
+            <lightning-record-form
+                object-api-name="Beverage__c"
+                record-type-id={recordTypeIds.Beverage_RECORDTYPE_STARBUCKS}
+                record-id={recordId}
+                fields={fields}
+                onsuccess={handleSuccess}>
+            </lightning-record-form>
+        </template>
+    </lightning-card>
+</template>
